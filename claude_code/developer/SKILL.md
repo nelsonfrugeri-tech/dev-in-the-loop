@@ -1,54 +1,107 @@
 ---
 name: developer
 description: |
-  Python development skill com melhores práticas, analise de código e guia de arquitetura de software.
-  Cobertura para type system, async patterns, Pydantic, testing e clean code principles.
-  Triggers: /developer, /dev, ou quando estiver discutindo Python code quality and patterns.
+  Skill para desenvolvimento Python moderno e universal - serve para scripts, CLIs, APIs web, pipelines de dados, qualquer projeto Python.
+  Cobre: type system avançado, async/await, Pydantic, testing, error handling, logging estruturado, e melhores práticas estado da arte.
+  Use quando: (1) Desenvolver código Python, (2) Analisar/revisar código, (3) Aplicar padrões e arquitetura.
+  Triggers: /developer, /dev, desenvolvimento Python, code quality, best practices.
 ---
 
-# Developer Skill - Python Modern Best Practices (Melhores Práticas de Mercado)
+# Developer Skill - Python Modern Best Practices
 
 ## Padrão de Conversa
 
-- **Verificabilidade**: Explique raciocínio antes de conclusões; use exemplos concretos; indique nível de certeza
-- **Rotulação**: Diferencie fatos vs opiniões técnicas vs convenções; indique trade-offs; marque código experimental
-- **Comunicação**: Português para texto, inglês para código/comentários; seja direto e conciso
+### Princípios de Comunicação
+
+**Verificabilidade e Transparência:**
+- Nunca apresente conteúdo gerado, inferido, especulado ou deduzido como fato.
+- Se você não pode verificar algo diretamente, diga claramente:
+  - "Não posso verificar isso."
+  - "Não tenho acesso a essa informação."
+  - "Minha base de conhecimento não contém isso."
+
+**Rotulação de Conteúdo Não Verificado:**
+- Rotule conteúdo não verificado no início da sentença usando:
+  - `[Inference]` - Para inferências baseadas em padrões
+  - `[Speculation]` - Para especulação ou hipóteses
+  - `[Unverified]` - Para informações que não podem ser confirmadas
+- Se qualquer parte da resposta for não verificada, rotule a resposta inteira.
+
+**Esclarecimentos:**
+- Peça esclarecimentos se houver informação faltando.
+- Não adivinhe ou preencha lacunas por conta própria.
+- Não parafraseie nem reinterprete o input do usuário a menos que solicitado.
+
+**Afirmações sobre LLMs:**
+- Para afirmações sobre comportamento de LLM (incluindo o próprio), inclua `[Inference]` ou `[Unverified]`.
+- Adicione nota indicando que é baseado em padrões observados.
+
+**Correções:**
+- Se quebrar esta diretiva, reconheça imediatamente:
+  - "Correção: Eu anteriormente fiz uma afirmação não verificada. Isso estava incorreto e deveria ter sido rotulado."
+
+**Preservação de Input:**
+- Nunca altere ou modifique o input do usuário a menos que explicitamente solicitado.
 
 ---
 
 ## Princípios Fundamentais
 
-- **Qualidade > Velocidade**: Código correto e tipado > código rápido e frágil; testes são parte da implementação
-- **Decomposição**: Funções pequenas com responsabilidade única; módulos coesos; dependências via injeção
-- **Convenções**: Código em inglês, comunicação em português; siga PEP 8
+**Qualidade de Código:**
+- Use código estado da arte com padrões de alto nível.
+- Pense profundamente sobre como resolver os problemas.
+- Adote uma abordagem cética e questionadora.
+
+**Decomposição de Problemas:**
+- Entenda o problema como um todo.
+- Avalie se faz sentido quebrar em partes menores.
+- Proponha essa quebra quando necessário, explicando o raciocínio.
+
+**Idioma:**
+- Escreva código e comentários sempre em inglês.
+- Documentação técnica e nomes de variáveis em inglês.
+- Discussões e explicações podem ser em português quando solicitado.
 
 ---
 
 ## Padrões Python Básicos
 
-### Tipagem Obrigatória
+### Tipagem Explícita
+
+Utilize sempre tipagem explícita em todas as variáveis e funções:
 ```python
-# Always use type hints
+from typing import Optional
+
 def process_items(items: list[str], limit: int = 10) -> dict[str, int]:
     return {item: len(item) for item in items[:limit]}
 ```
 
 ### Formatação Black
-- Line length: 88 caracteres
-- Aspas duplas para strings
+
+Formate todo código no estilo da biblioteca `black`:
+- Linha máxima de 88 caracteres (padrão black)
+- Use aspas duplas para strings
 - Trailing commas em estruturas multi-linha
+```python
+def long_function_name(
+    parameter_one: str,
+    parameter_two: int,
+    parameter_three: list[str] | None = None,
+) -> dict[str, Any]:
+    """Function with properly formatted parameters."""
+    pass
+```
 
 ---
 
 ## Conceitos Python Modernos - Overview
 
-Visão geral de cada conceito. Para detalhes, consulte `references/`.
+Visão geral de cada conceito Python estado da arte. Para detalhes e exemplos avançados, consulte os arquivos de referência indicados.
 
 ### 1. Type System Avançado
 **Quando usar:** Contratos claros, duck typing estrutural, tipos genéricos reutilizáveis.
 
 Python 3.10+ oferece: `Protocol` (duck typing estrutural), `TypeVar`/`Generic` (código genérico), `Literal` (valores específicos), `TypedDict` (dicts tipados), `X | Y` (union moderna).
-
 ```python
 from typing import Protocol, TypeVar, Generic, Literal
 
@@ -62,9 +115,11 @@ class Container(Generic[T]):
         self.value = value
 
 Status = Literal["pending", "done", "failed"]
+
 def process(status: Status, data: str | None = None) -> str:
     return f"{status}: {data or 'empty'}"
 ```
+
 **Referência:** [references/python/type-system.md](references/python/type-system.md)
 
 ---
@@ -73,7 +128,6 @@ def process(status: Status, data: str | None = None) -> str:
 **Quando usar:** I/O-bound operations (APIs, databases, network, files).
 
 Asyncio permite I/O concorrente sem bloquear: `async def` (coroutines), `await` (aguarda operação), `asyncio.gather()` (paraleliza).
-
 ```python
 import asyncio
 import httpx
@@ -86,6 +140,7 @@ async def fetch_data(url: str) -> dict:
 async def fetch_all(urls: list[str]) -> list[dict]:
     return await asyncio.gather(*[fetch_data(url) for url in urls])
 ```
+
 **Referência:** [references/python/async-patterns.md](references/python/async-patterns.md)
 
 ---
@@ -94,7 +149,6 @@ async def fetch_all(urls: list[str]) -> list[dict]:
 **Quando usar:** Estruturas de dados com representação clara, comparação, imutabilidade opcional.
 
 Elimina boilerplate: `@dataclass` gera `__init__`, `__repr__`, `__eq__`; `frozen=True` (imutável); `slots=True` (menos memória).
-
 ```python
 from dataclasses import dataclass, field
 
@@ -108,6 +162,7 @@ class Point:
     def distance_from_origin(self) -> float:
         return (self.x**2 + self.y**2) ** 0.5
 ```
+
 **Referência:** [references/python/dataclasses.md](references/python/dataclasses.md)
 
 ---
@@ -116,7 +171,6 @@ class Point:
 **Quando usar:** Gerenciamento de recursos (arquivos, conexões, locks), setup/teardown, transações.
 
 Garantem cleanup mesmo com exceções: `with` (uso), `@contextmanager` (criação simples), `__enter__/__exit__` (manual).
-
 ```python
 from contextlib import contextmanager
 from typing import Iterator
@@ -133,6 +187,7 @@ def managed_connection(host: str) -> Iterator[Connection]:
 with managed_connection("localhost") as conn:
     conn.execute("SELECT 1")
 ```
+
 **Referência:** [references/python/context-managers.md](references/python/context-managers.md)
 
 ---
@@ -141,7 +196,6 @@ with managed_connection("localhost") as conn:
 **Quando usar:** Cross-cutting concerns (logging, caching, auth), modificar comportamento sem alterar código.
 
 Funções que envolvem outras: `@functools.cache` (memoização), `@property` (atributos computados), custom decorators.
-
 ```python
 from functools import wraps, cache
 from typing import Callable, TypeVar
@@ -162,6 +216,7 @@ def retry(times: int = 3) -> Callable[[Callable[..., T]], Callable[..., T]]:
         return wrapper
     return decorator
 ```
+
 **Referência:** [references/python/decorators.md](references/python/decorators.md)
 
 ---
@@ -170,7 +225,6 @@ def retry(times: int = 3) -> Callable[[Callable[..., T]], Callable[..., T]]:
 **Quando usar:** Validação de dados externos (APIs, configs, arquivos), serialização, schemas documentados.
 
 Padrão para validação: `@field_validator` (validação custom), `@computed_field` (campos derivados), integração FastAPI.
-
 ```python
 from pydantic import BaseModel, field_validator, computed_field
 
@@ -191,6 +245,7 @@ class User(BaseModel):
     def is_adult(self) -> bool:
         return self.age >= 18
 ```
+
 **Referência:** [references/python/pydantic.md](references/python/pydantic.md)
 
 ---
@@ -199,7 +254,6 @@ class User(BaseModel):
 **Quando usar:** Sempre; crie hierarquias para erros de domínio específicos.
 
 Exceções bem estruturadas: hierarquia customizada, mensagens claras, use para casos excepcionais (não fluxo normal).
-
 ```python
 class AppError(Exception):
     """Base exception for application errors."""
@@ -209,11 +263,13 @@ class ValidationError(AppError):
 
 class NotFoundError(AppError):
     """Raised when requested resource is not found."""
+    
     def __init__(self, resource: str, id: str) -> None:
         super().__init__(f"{resource} with id '{id}' not found")
         self.resource = resource
         self.id = id
 ```
+
 **Referência:** [references/python/error-handling.md](references/python/error-handling.md)
 
 ---
@@ -222,7 +278,6 @@ class NotFoundError(AppError):
 **Quando usar:** Sempre. Testes são parte integral do desenvolvimento.
 
 Framework padrão: fixtures (setup reutilizável), `@pytest.mark.parametrize` (múltiplos casos), assertions simples.
-
 ```python
 import pytest
 
@@ -235,6 +290,7 @@ def test_discount(premium_user: User, price: float, expected: float) -> None:
     result = calculate_discount(premium_user, price)
     assert result == pytest.approx(expected)
 ```
+
 **Referência:** [references/testing/pytest.md](references/testing/pytest.md)
 
 ---
@@ -243,9 +299,9 @@ def test_discount(premium_user: User, price: float, expected: float) -> None:
 **Quando usar:** Produção e debugging; essencial para observabilidade.
 
 Structlog produz logs JSON: contexto automático, processadores customizáveis, integração com logging padrão.
-
 ```python
 import structlog
+
 logger = structlog.get_logger()
 
 def process_order(order_id: str, user_id: str) -> None:
@@ -258,6 +314,7 @@ def process_order(order_id: str, user_id: str) -> None:
         log.error("processing_failed", error=str(e))
         raise
 ```
+
 **Referência:** [references/python/logging.md](references/python/logging.md)
 
 ---
@@ -266,18 +323,19 @@ def process_order(order_id: str, user_id: str) -> None:
 **Quando usar:** Qualquer app que precise de configuração externa (envvars, arquivos).
 
 Pydantic-settings: carrega de env vars, validação integrada, suporte a .env e secrets.
-
 ```python
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="APP_", env_file=".env")
+    
     database_url: str
     debug: bool = False
     max_connections: int = 10
 
 settings = Settings()  # Loads from APP_DATABASE_URL, etc.
 ```
+
 **Referência:** [references/python/configuration.md](references/python/configuration.md)
 
 ---
@@ -286,7 +344,6 @@ settings = Settings()  # Loads from APP_DATABASE_URL, etc.
 **Quando usar:** Grandes volumes de dados, pipelines de transformação, economia de memória.
 
 Valores sob demanda: `yield` (produz incrementalmente), generator expressions, `itertools`.
-
 ```python
 from typing import Iterator
 from pathlib import Path
@@ -302,6 +359,7 @@ def process_lines(path: Path) -> Iterator[str]:
             if line.strip():
                 yield line.upper()
 ```
+
 **Referência:** [references/python/generators.md](references/python/generators.md)
 
 ---
@@ -310,7 +368,6 @@ def process_lines(path: Path) -> Iterator[str]:
 **Quando usar:** Escolha baseada no tipo de workload - I/O-bound vs CPU-bound.
 
 Três modelos: `asyncio` (I/O, single-thread, cooperativo), `threading` (I/O, multi-thread, GIL), `multiprocessing` (CPU, bypassa GIL).
-
 ```python
 import asyncio
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
@@ -326,6 +383,7 @@ with ThreadPoolExecutor(max_workers=4) as ex:
 with ProcessPoolExecutor() as ex:
     results = list(ex.map(cpu_func, items))
 ```
+
 **Referência:** [references/python/concurrency.md](references/python/concurrency.md)
 
 ---
@@ -334,7 +392,6 @@ with ProcessPoolExecutor() as ex:
 **Quando usar:** Projetos distribuídos ou com dependências gerenciadas.
 
 `pyproject.toml` (PEP 621): substitui setup.py/setup.cfg, config centralizada, build systems modernos.
-
 ```toml
 [project]
 name = "mypackage"
@@ -351,40 +408,8 @@ line-length = 88
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 ```
+
 **Referência:** [references/python/packaging.md](references/python/packaging.md)
-
----
-
-### 14. FastAPI Best Practices
-**Quando usar:** APIs REST/HTTP modernas, microservices, backends assíncronos.
-
-Combina async + Pydantic + OpenAPI: Dependency Injection, response models, background tasks.
-
-```python
-from fastapi import FastAPI, Depends, HTTPException
-from pydantic import BaseModel
-
-app = FastAPI()
-
-class UserResponse(BaseModel):
-    id: str
-    name: str
-
-async def get_db() -> AsyncIterator[Database]:
-    db = Database()
-    try:
-        yield db
-    finally:
-        await db.close()
-
-@app.get("/users/{user_id}", response_model=UserResponse)
-async def get_user(user_id: str, db: Database = Depends(get_db)) -> UserResponse:
-    user = await db.get_user(user_id)
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
-    return UserResponse(id=user.id, name=user.name)
-```
-**Referência:** [references/fastapi/best-practices.md](references/fastapi/best-practices.md)
 
 ---
 
@@ -399,10 +424,11 @@ async def get_user(user_id: str, db: Database = Depends(get_db)) -> UserResponse
 | Coverage | **pytest-cov** | Cobertura | `pytest --cov=src` |
 | Hooks | **pre-commit** | Git hooks | `pre-commit install` |
 
+**Referência:** [references/tooling/setup.md](references/tooling/setup.md)
+
 ---
 
 ## Workflow Recomendado
-
 ```
 PLANEJAR → TIPAR → IMPLEMENTAR → TESTAR → VALIDAR → REVISAR
 ```
@@ -427,6 +453,7 @@ PLANEJAR → TIPAR → IMPLEMENTAR → TESTAR → VALIDAR → REVISAR
 - [references/python/generators.md](references/python/generators.md) - Generators e iteradores
 - [references/python/concurrency.md](references/python/concurrency.md) - Threading, multiprocessing, asyncio
 - [references/python/error-handling.md](references/python/error-handling.md) - Exceções e error handling
+- [references/python/packaging.md](references/python/packaging.md) - pyproject.toml e packaging
 
 ### Frameworks e Bibliotecas
 - [references/python/pydantic.md](references/python/pydantic.md) - Pydantic v2 completo
@@ -445,6 +472,6 @@ PLANEJAR → TIPAR → IMPLEMENTAR → TESTAR → VALIDAR → REVISAR
 - [references/architecture/repository-pattern.md](references/architecture/repository-pattern.md) - Repository pattern
 
 ### Tooling
-- [references/python/packaging.md](references/python/packaging.md) - pyproject.toml e packaging
+- [references/tooling/setup.md](references/tooling/setup.md) - Setup completo de ferramentas
 - [references/tooling/pre-commit.md](references/tooling/pre-commit.md) - Pre-commit hooks
 - [references/tooling/makefile.md](references/tooling/makefile.md) - Makefile para Python
