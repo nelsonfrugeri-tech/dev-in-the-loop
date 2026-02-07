@@ -504,12 +504,3 @@ git reset --hard
 ```
 
 ---
-
-## ✅ Git.md Criado!
-
-Agora temos **TODOS os arquivos de references/**:
-```
-references/
-├── checklist.md   ✅ (checklist lean com ponteiros)
-├── templates.md   ✅ (templates de comentários)
-└── git.md         ✅ (workflows e comandos git)
