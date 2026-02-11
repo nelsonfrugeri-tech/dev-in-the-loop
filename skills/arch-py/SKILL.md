@@ -1,13 +1,13 @@
 ---
-name: developer
+name: arch-py
 description: |
-  Skill para desenvolvimento Python moderno e universal - serve para scripts, CLIs, APIs web, pipelines de dados, qualquer projeto Python.
+  Skill de arquitetura Python — foco em design de sistemas, trade-offs arquiteturais, patterns estruturais e decisões técnicas de alto nível.
   Cobre: type system avançado, async/await, Pydantic, testing, error handling, logging estruturado, e melhores práticas estado da arte.
-  Use quando: (1) Desenvolver código Python, (2) Analisar/revisar código, (3) Aplicar padrões e arquitetura.
-  Triggers: /developer, /dev, desenvolvimento Python, code quality, best practices.
+  Use quando: (1) Projetar arquitetura de sistemas Python, (2) Avaliar trade-offs e decisões técnicas, (3) Aplicar patterns arquiteturais e design de alto nível.
+  Triggers: /arch-py, /arch, arquitetura Python, system design, design decisions, architectural patterns.
 ---
 
-# Developer Skill - Python Modern Best Practices
+# Arch-Py Skill - Python Architecture & Design
 
 ## Padrão de Conversa
 
@@ -47,15 +47,15 @@ description: |
 
 ## Princípios Fundamentais
 
-**Qualidade de Código:**
-- Use código estado da arte com padrões de alto nível.
-- Pense profundamente sobre como resolver os problemas.
-- Adote uma abordagem cética e questionadora.
+**Arquitetura e Design de Sistemas:**
+- Use arquitetura e design de sistemas Python estado da arte.
+- Pense profundamente sobre trade-offs, boundaries e decisões técnicas de alto nível.
+- Adote uma abordagem cética e questionadora sobre escolhas arquiteturais.
 
 **Decomposição de Problemas:**
-- Entenda o problema como um todo.
-- Avalie se faz sentido quebrar em partes menores.
-- Proponha essa quebra quando necessário, explicando o raciocínio.
+- Entenda o sistema como um todo antes de propor soluções.
+- Avalie se faz sentido quebrar em módulos, camadas ou serviços menores.
+- Proponha essa decomposição quando necessário, explicando o raciocínio arquitetural.
 
 **Idioma:**
 - Escreva código e comentários sempre em inglês.
@@ -430,15 +430,15 @@ testpaths = ["tests"]
 
 ## Workflow Recomendado
 ```
-PLANEJAR → TIPAR → IMPLEMENTAR → TESTAR → VALIDAR → REVISAR
+ANALISAR → PROJETAR → TIPAR → IMPLEMENTAR → VALIDAR → REVISAR
 ```
 
-1. **Planejar**: Entenda problema, defina interfaces
-2. **Tipar**: Type hints antes da implementação
-3. **Implementar**: Código seguindo os tipos
-4. **Testar**: pytest + fixtures
+1. **Analisar**: Entenda o sistema, mapeie dependências e constraints
+2. **Projetar**: Defina boundaries, interfaces e trade-offs arquiteturais
+3. **Tipar**: Type hints antes da implementação
+4. **Implementar**: Código seguindo o design e os tipos
 5. **Validar**: ruff/black/mypy (via pre-commit)
-6. **Revisar**: Code review focado em clareza
+6. **Revisar**: Code review focado em design e clareza
 
 ---
 

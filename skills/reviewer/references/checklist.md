@@ -1,6 +1,6 @@
 # Code Review Checklist
 
-Checklist de code review para Python. Cada item aponta para a developer skill que contém os padrões completos e exemplos.
+Checklist de code review para Python. Cada item aponta para a arch-py skill que contém os padrões completos e exemplos.
 
 ---
 
@@ -9,12 +9,12 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 **Para cada arquivo Python modificado:**
 
 1. Percorra as categorias abaixo sequencialmente
-2. Para cada check, consulte a referência indicada na developer skill
+2. Para cada check, consulte a referência indicada na arch-py skill
 3. Marque [x] quando item verificado
 4. Se encontrar violação, gere comentário citando:
    - O check violado
    - Severidade típica
-   - Referência da developer skill
+   - Referência da arch-py skill
 
 **Severidade é indicativa.** Use bom senso baseado no contexto.
 
@@ -29,7 +29,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Uso de pydantic-settings ou similar
 
 **Severidade típica:** 🔴 Critical  
-**Referência:** [Developer - Configuration](../../developer/references/python/configuration.md)
+**Referência:** [Arch-Py - Configuration](../../arch-py/references/python/configuration.md)
 
 ---
 
@@ -40,7 +40,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Campos obrigatórios, tipos, validações customizadas
 
 **Severidade típica:** 🟠 High  
-**Referência:** [Developer - Pydantic](../../developer/references/python/pydantic.md)
+**Referência:** [Arch-Py - Pydantic](../../arch-py/references/python/pydantic.md)
 
 ---
 
@@ -62,7 +62,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Token validation adequada
 
 **Severidade típica:** 🔴 Critical (endpoints públicos) / 🟠 High (internos)  
-**Referência:** [Developer - FastAPI Best Practices](../../developer/references/fastapi/best-practices.md)
+**Referência:** [Arch-Py - FastAPI Best Practices](../../arch-py/references/fastapi/best-practices.md)
 
 ---
 
@@ -73,7 +73,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Request/response bodies sanitizados
 
 **Severidade típica:** 🔴 Critical  
-**Referência:** [Developer - Logging](../../developer/references/python/logging.md)
+**Referência:** [Arch-Py - Logging](../../arch-py/references/python/logging.md)
 
 ---
 
@@ -108,7 +108,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Recursos liberados adequadamente
 
 **Severidade típica:** 🔴 Critical (leaks confirmados) / 🟠 High (suspeitos)  
-**Referência:** [Developer - Context Managers](../../developer/references/python/context-managers.md)
+**Referência:** [Arch-Py - Context Managers](../../arch-py/references/python/context-managers.md)
 
 ---
 
@@ -121,7 +121,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Coverage >60% (geral), >80% (core), 100% (crítico)
 
 **Severidade típica:** 🔴 Critical (código crítico sem testes) / 🟠 High (cobertura <50%)  
-**Referência:** [Developer - Pytest](../../developer/references/testing/pytest.md)
+**Referência:** [Arch-Py - Pytest](../../arch-py/references/testing/pytest.md)
 
 ---
 
@@ -132,7 +132,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Assertions específicas e claras
 
 **Severidade típica:** 🟡 Medium  
-**Referência:** [Developer - Testing Best Practices](../../developer/references/testing/pytest.md)
+**Referência:** [Arch-Py - Testing Best Practices](../../arch-py/references/testing/pytest.md)
 
 ---
 
@@ -146,7 +146,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Uso de tipos modernos (list[str] não List[str])
 
 **Severidade típica:** 🟡 Medium (funções privadas) / 🟠 High (APIs públicas)  
-**Referência:** [Developer - Type System](../../developer/references/python/type-system.md)
+**Referência:** [Arch-Py - Type System](../../arch-py/references/python/type-system.md)
 
 ---
 
@@ -158,7 +158,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Cleanup em finally ou context managers
 
 **Severidade típica:** 🔴 Critical (operações críticas) / 🟠 High (APIs) / 🟡 Medium (geral)  
-**Referência:** [Developer - Error Handling](../../developer/references/python/error-handling.md)
+**Referência:** [Arch-Py - Error Handling](../../arch-py/references/python/error-handling.md)
 
 ---
 
@@ -170,7 +170,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Structured logging (JSON) preferido
 
 **Severidade típica:** 🟠 High (APIs e serviços) / 🟡 Medium (código interno)  
-**Referência:** [Developer - Logging](../../developer/references/python/logging.md)
+**Referência:** [Arch-Py - Logging](../../arch-py/references/python/logging.md)
 
 ---
 
@@ -206,7 +206,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Nome não contém "e" (process_AND_send_AND_update)
 
 **Severidade típica:** 🟡 Medium / 🟠 High (se muito complexo)  
-**Referência:** [Developer - Clean Architecture](../../developer/references/architecture/clean-architecture.md)
+**Referência:** [Arch-Py - Clean Architecture](../../arch-py/references/architecture/clean-architecture.md)
 
 ---
 
@@ -254,7 +254,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Repositories isolam acesso a dados
 
 **Severidade típica:** 🟡 Medium / 🟠 High (violação grave)  
-**Referência:** [Developer - Clean Architecture](../../developer/references/architecture/clean-architecture.md)
+**Referência:** [Arch-Py - Clean Architecture](../../arch-py/references/architecture/clean-architecture.md)
 
 ---
 
@@ -265,7 +265,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Configurações vêm de fora
 
 **Severidade típica:** 🟡 Medium  
-**Referência:** [Developer - Dependency Injection](../../developer/references/architecture/dependency-injection.md)
+**Referência:** [Arch-Py - Dependency Injection](../../arch-py/references/architecture/dependency-injection.md)
 
 ---
 
@@ -278,7 +278,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Dependências de dev separadas
 
 **Severidade típica:** 🟠 High (produção) / 🟡 Medium (dev)  
-**Referência:** [Developer - Packaging](../../developer/references/python/packaging.md)
+**Referência:** [Arch-Py - Packaging](../../arch-py/references/python/packaging.md)
 
 ---
 
@@ -289,7 +289,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 - Await em operações assíncronas
 
 **Severidade típica:** 🟠 High (se bloqueia event loop) / 🟡 Medium (performance)  
-**Referência:** [Developer - Async Patterns](../../developer/references/python/async-patterns.md)
+**Referência:** [Arch-Py - Async Patterns](../../arch-py/references/python/async-patterns.md)
 
 ---
 
@@ -322,7 +322,7 @@ Checklist de code review para Python. Cada item aponta para a developer skill qu
 1. **Security** (checks 1-5) → Máxima prioridade
 2. **Performance** (checks 6-8) → Buscar problemas graves
 3. **Testing** (checks 9-10) → Coverage e qualidade
-4. **Code Quality** (checks 11-19) → Conformidade com developer skill
+4. **Code Quality** (checks 11-19) → Conformidade com arch-py skill
 5. **Architecture** (checks 20-21) → Estrutura do código
 6. **Config/Deps** (checks 22-23) → Configurações
 7. **Documentation** (checks 24-25) → Docs atualizadas
@@ -355,7 +355,7 @@ pytest --cov=src --cov-report=term-missing
 ruff check --select I
 ```
 
-**Referência completa:** [Developer - Tooling](../../developer/references/tooling/setup.md)
+**Referência completa:** [Arch-Py - Tooling](../../arch-py/references/tooling/setup.md)
 
 ---
 
@@ -364,7 +364,7 @@ ruff check --select I
 **Este checklist é um guia, não uma regra rígida:**
 - Use bom senso baseado no contexto do projeto
 - Severidades são indicativas, não absolutas
-- Consulte sempre a developer skill para padrões detalhados
+- Consulte sempre a arch-py skill para padrões detalhados
 - Adapte para o contexto (startup vs enterprise, prototipo vs produção)
 
 **Para decisão final de aprovação:**

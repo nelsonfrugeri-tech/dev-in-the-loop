@@ -3,7 +3,7 @@ name: review-py
 description: |
   Code review sistemático para projetos Python entre branches Git.
   Gera análise de impacto, review detalhado arquivo por arquivo, e comentários formatados para copy-paste em PRs.
-  Integra com developer skill para referenciar best practices Python.
+  Integra com arch-py skill para referenciar best practices Python.
   Use quando: (1) Revisar PR/MR Python, (2) Analisar mudanças antes de merge, (3) Code review entre branches.
   Triggers: /review, /review-py, code review, PR review, merge request, revisar código.
 ---
@@ -26,7 +26,7 @@ description: |
 - Explique o "porquê" da sugestão, não apenas o "o quê"
 
 **Integração:**
-- Referencie developer skill quando aplicável
+- Referencie arch-py skill quando aplicável
 - Cite linhas e arquivos específicos
 - Mantenha rastreabilidade do feedback
 
@@ -45,7 +45,7 @@ description: |
 - Use scripts para acelerar análise, mas review manual é sempre necessário
 
 **References (Documentação):**
-- `references/checklist.md` → checklist de review com ponteiros para developer skill
+- `references/checklist.md` → checklist de review com ponteiros para arch-py skill
 - `references/templates.md` → exemplos de comentários por tipo de issue
 - `references/git.md` → comandos git úteis
 - **Consulte** quando precisar de detalhes, exemplos ou comandos específicos
@@ -212,7 +212,7 @@ EOF
 
 7. **Referências úteis:**
    - Consulte `references/checklist.md` para severidade típica de cada tipo de issue
-   - Use critérios da developer skill para avaliar complexidade
+   - Use critérios da arch-py skill para avaliar complexidade
 
 ---
 
@@ -253,9 +253,9 @@ python scripts/analyze_diff.py --file {filepath} --base {base} --compare {compar
 ```
 
 **c. Consultar checklist de review:**
-- Leia `references/checklist.md` (checklist lean com ponteiros para developer skill)
+- Leia `references/checklist.md` (checklist lean com ponteiros para arch-py skill)
 - Verifique cada item aplicável ao arquivo
-- Para detalhes de padrões, consulte developer skill conforme referenciado no checklist
+- Para detalhes de padrões, consulte arch-py skill conforme referenciado no checklist
 
 **d. Gerar comentários:**
 
@@ -290,9 +290,9 @@ view assets/comment.md
   - Formato: "**Impacto:** {descrição do impacto em produção}"
 - `{action_required}` → (para Critical) adicionar nota de bloqueio
   - Formato: "**Ação Requerida:** Bloqueia merge. Deve ser corrigido imediatamente."
-- `{references}` → links para developer skill e docs externas
-  - Sempre incluir link para developer skill quando aplicável
-  - Formato: "- Developer Skill: [{arquivo}](../developer/references/{caminho})"
+- `{references}` → links para arch-py skill e docs externas
+  - Sempre incluir link para arch-py skill quando aplicável
+  - Formato: "- Arch-Py Skill: [{arquivo}](../arch-py/references/{caminho})"
 
 **EXEMPLO DE PREENCHIMENTO:**
 
@@ -447,10 +447,10 @@ Use estas categorias (exemplos em `references/templates.md`):
 Sempre que identificar violação de padrão Python, referencie:
 
 **Exemplos:**
-- Falta type hints → `[references/python/type-system.md](../developer/references/python/type-system.md)`
-- Error handling ruim → `[references/python/error-handling.md](../developer/references/python/error-handling.md)`
-- Async incorreto → `[references/python/async-patterns.md](../developer/references/python/async-patterns.md)`
-- Pydantic errado → `[references/python/pydantic.md](../developer/references/python/pydantic.md)`
+- Falta type hints → `[references/python/type-system.md](../arch-py/references/python/type-system.md)`
+- Error handling ruim → `[references/python/error-handling.md](../arch-py/references/python/error-handling.md)`
+- Async incorreto → `[references/python/async-patterns.md](../arch-py/references/python/async-patterns.md)`
+- Pydantic errado → `[references/python/pydantic.md](../arch-py/references/python/pydantic.md)`
 
 ---
 
@@ -539,7 +539,7 @@ Para cada métrica, adicione status:
 - `{trends_analysis}` → observações sobre padrões recorrentes
 
 **Referências:**
-- `{developer_references}` → lista de arquivos da developer skill citados
+- `{developer_references}` → lista de arquivos da arch-py skill citados
 - `{external_references}` → links externos citados
 
 **Informações do Review:**
@@ -857,7 +857,7 @@ python scripts/format_output.py \
         "current_code": "API_KEY = \"sk-abc123...\"",
         "suggested_code": "from pydantic_settings import BaseSettings...",
         "justification": "Credenciais nunca devem estar no código...",
-        "references": ["Developer Skill: references/python/configuration.md"]
+        "references": ["Arch-Py Skill: references/python/configuration.md"]
       }
     ],
     "positive_points": [
@@ -888,7 +888,7 @@ python scripts/format_output.py \
 review-py/
 ├── SKILL.md                          (este arquivo - workflow principal)
 ├── references/
-│   ├── checklist.md                 (checklist lean mapeado com developer skill)
+│   ├── checklist.md                 (checklist lean mapeado com arch-py skill)
 │   ├── templates.md                 (templates e exemplos de comentários)
 │   └── git.md                       (comandos git úteis e workflows)
 ├── scripts/
@@ -916,7 +916,7 @@ review-py/
 
 | Arquivo | Quando Ler | Propósito | Lido Via |
 |---------|------------|-----------|----------|
-| `references/checklist.md` | Durante review de arquivo (Opção 2) | Checklist lean com ponteiros para developer skill | `view references/checklist.md` |
+| `references/checklist.md` | Durante review de arquivo (Opção 2) | Checklist lean com ponteiros para arch-py skill | `view references/checklist.md` |
 | `references/templates.md` | Ao gerar comentários (Opção 2) | Exemplos prontos por tipo de issue (SQL Injection, N+1, etc) | `view references/templates.md` |
 | `references/git.md` | Quando precisar de comandos git avançados | Workflows git e comandos úteis | `view references/git.md` |
 
@@ -964,11 +964,11 @@ review-py/
 **SKILL.md:**
 - Workflow completo de code review
 - Instruções de uso dos assets e scripts
-- Integração com developer skill
+- Integração com arch-py skill
 
 **references/checklist.md:**
 - Checklist lean de review (25 checks)
-- Ponteiros para developer skill (zero duplicação)
+- Ponteiros para arch-py skill (zero duplicação)
 - Severidade típica de cada check
 
 **references/templates.md:**
@@ -1030,10 +1030,10 @@ review-py/
 - [scripts/format_output.py](scripts/format_output.py) - Formatação de output
 
 ### Developer Skill (Best Practices Python)
-- [../developer/SKILL.md](../developer/SKILL.md) - Developer skill principal
-- [../developer/references/python/](../developer/references/python/) - Padrões Python
-- [../developer/references/testing/](../developer/references/testing/) - Padrões de testes
-- [../developer/references/architecture/](../developer/references/architecture/) - Arquitetura
+- [../arch-py/SKILL.md](../arch-py/SKILL.md) - Developer skill principal
+- [../arch-py/references/python/](../arch-py/references/python/) - Padrões Python
+- [../arch-py/references/testing/](../arch-py/references/testing/) - Padrões de testes
+- [../arch-py/references/architecture/](../arch-py/references/architecture/) - Arquitetura
 
 ### Output Gerado
 - `review-output.md` - Arquivo final salvo na raiz do projeto (copy-paste ready)

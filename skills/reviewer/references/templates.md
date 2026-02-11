@@ -30,7 +30,7 @@ Use este template para comentários detalhados:
 {impacto se não corrigir}
 
 **Referência:**
-- Developer Skill: [{arquivo}](../developer/{caminho})
+- Arch-Py Skill: [{arquivo}](../arch-py/{caminho})
 {outras referências se aplicável}
 ````
 
@@ -69,7 +69,7 @@ Este é um problema crítico que pode causar {impacto grave}.
 **Ação Requerida:** Bloqueia merge. Deve ser corrigido imediatamente.
 
 **Referência:**
-- Developer Skill: [{arquivo}](../developer/{caminho})
+- Arch-Py Skill: [{arquivo}](../arch-py/{caminho})
 ````
 
 ---
@@ -101,7 +101,7 @@ Este é um problema crítico que pode causar {impacto grave}.
 **Ação Requerida:** Deve corrigir antes de merge.
 
 **Referência:**
-- Developer Skill: [{arquivo}](../developer/{caminho})
+- Arch-Py Skill: [{arquivo}](../arch-py/{caminho})
 ````
 
 ---
@@ -129,7 +129,7 @@ Este é um problema crítico que pode causar {impacto grave}.
 {explicação do porquê isso é importante}
 
 **Referência:**
-- Developer Skill: [{arquivo}](../developer/{caminho})
+- Arch-Py Skill: [{arquivo}](../arch-py/{caminho})
 ````
 
 ---
@@ -214,7 +214,7 @@ settings = Settings()
 **Ação Requerida:** Bloqueia merge. Corrigir imediatamente e rotacionar credenciais.
 
 **Referência:**
-- Developer Skill: [references/python/configuration.md](../developer/references/python/configuration.md)
+- Arch-Py Skill: [references/python/configuration.md](../arch-py/references/python/configuration.md)
 - OWASP: https://owasp.org/Top10/A02_2021-Cryptographic_Failures/
 ````
 
@@ -300,7 +300,7 @@ Sem validação, dados inválidos podem:
 **Ação Requerida:** Corrigir antes de merge.
 
 **Referência:**
-- Developer Skill: [references/python/pydantic.md](../developer/references/python/pydantic.md)
+- Arch-Py Skill: [references/python/pydantic.md](../arch-py/references/python/pydantic.md)
 ````
 
 ---
@@ -380,7 +380,7 @@ Type hints melhoram:
 - Refactoring mais seguro
 
 **Referência:**
-- Developer Skill: [references/python/type-system.md](../developer/references/python/type-system.md)
+- Arch-Py Skill: [references/python/type-system.md](../arch-py/references/python/type-system.md)
 ````
 
 ---
@@ -415,7 +415,7 @@ except {SpecificException} as e:
 **Impacto:** {consequência de não tratar}
 
 **Referência:**
-- Developer Skill: [references/python/error-handling.md](../developer/references/python/error-handling.md)
+- Arch-Py Skill: [references/python/error-handling.md](../arch-py/references/python/error-handling.md)
 ````
 
 ---
@@ -460,7 +460,7 @@ Logs são essenciais para:
 - Rastreamento de requests
 
 **Referência:**
-- Developer Skill: [references/python/logging.md](../developer/references/python/logging.md)
+- Arch-Py Skill: [references/python/logging.md](../arch-py/references/python/logging.md)
 ````
 
 ---
@@ -507,7 +507,7 @@ def test_{function_name}_multiple_cases(input, expected):
 **Coverage Esperada:** {X}% para este módulo
 
 **Referência:**
-- Developer Skill: [references/testing/pytest.md](../developer/references/testing/pytest.md)
+- Arch-Py Skill: [references/testing/pytest.md](../arch-py/references/testing/pytest.md)
 ````
 
 ---
@@ -613,13 +613,13 @@ Use sempre ao final do review de cada arquivo:
 Para issues muito simples, use formato compacto:
 ````markdown
 **L{line_num}** - {emoji} {severity} - {issue_description} → Sugestão: {quick_fix}  
-Ref: [Developer - {topic}](../developer/references/{path})
+Ref: [Arch-Py - {topic}](../arch-py/references/{path})
 ````
 
 **Exemplo:**
 ````markdown
 **L42** - 🟢 Low - Variável `count` não usada → Remover ou usar no cálculo  
-Ref: [Developer - Code Quality](../developer/references/python/best-practices.md)
+Ref: [Arch-Py - Code Quality](../arch-py/references/python/best-practices.md)
 ````
 
 ---
@@ -663,7 +663,7 @@ Ref: [Developer - Code Quality](../developer/references/python/best-practices.md
 - Sempre adapte o template ao contexto
 - Adicione detalhes específicos ao código em questão
 - Seja específico sobre linhas afetadas
-- Cite a developer skill quando aplicável
+- Cite a arch-py skill quando aplicável
 
 **Formato Bitbucket:**
 - Markdown padrão funciona

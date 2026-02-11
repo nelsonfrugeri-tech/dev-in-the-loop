@@ -201,7 +201,7 @@
 
 ## 📚 Referências Consultadas
 
-### Developer Skill
+### Arch-Py Skill
 {developer_references}
 
 ### External Resources
@@ -227,7 +227,7 @@
 ---
 
 **Este relatório foi gerado automaticamente pela review-py skill.**  
-**Para questões ou sugestões sobre o review, consulte a developer skill ou entre em contato com o time.**
+**Para questões ou sugestões sobre o review, consulte a arch-py skill ou entre em contato com o time.**
 
 ---
 
