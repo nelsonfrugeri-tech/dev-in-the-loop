@@ -1,0 +1,11 @@
+# Ignora TUDO por padrão
+/*
+
+# Permite apenas as pastas específicas
+!.gitignore
+!agents/
+!skills/
+
+# Adicione aqui outras pastas quando quiser versionar:
+# !workspace/
+# !plugins/
