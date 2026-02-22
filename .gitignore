@@ -3,6 +3,7 @@
 
 # Permite apenas as pastas específicas
 !.gitignore
+!CLAUDE.md
 !agents/
 !skills/
 
