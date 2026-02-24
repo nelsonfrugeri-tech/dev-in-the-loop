@@ -6,6 +6,8 @@
 !CLAUDE.md
 !agents/
 !skills/
+!hooks/
+hooks/logs/
 
 # Adicione aqui outras pastas quando quiser versionar:
 # !workspace/
