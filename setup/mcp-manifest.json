@@ -1,0 +1,26 @@
+{
+  "$schema": "MCP Manifest - declara MCPs necessários para o ambiente .claude",
+  "$docs": "Rode 'bash ~/.claude/setup/bootstrap.sh' para instalar os MCPs na máquina local",
+
+  "mcps": {
+    "memory-keeper": {
+      "description": "Persistência de contexto entre sessões",
+      "required": true,
+      "scope": "user",
+      "type": "stdio",
+      "command": "npx",
+      "args": ["mcp-memory-keeper"],
+      "needs_node": ">=18",
+      "notes": "Se npx não funcionar, o bootstrap cria wrapper com nvm"
+    }
+  },
+
+  "optional_mcps": {
+    "github": {
+      "description": "Integração com GitHub (issues, PRs, repos)",
+      "scope": "user",
+      "type": "builtin",
+      "notes": "Ativar via claude.ai se disponível"
+    }
+  }
+}
