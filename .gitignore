@@ -4,10 +4,14 @@
 # Permite apenas as pastas específicas
 !.gitignore
 !CLAUDE.md
+!README.md
 !agents/
 !skills/
 !hooks/
 hooks/logs/
+!setup/
+setup/.local-state.json
+setup/bootstrap.log
 
 # Adicione aqui outras pastas quando quiser versionar:
 # !workspace/
